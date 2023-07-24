@@ -1,0 +1,4 @@
+fastEnv/
+.idea/
+.env
+__pycache__
