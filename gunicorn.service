@@ -1,0 +1,14 @@
+[Unit]
+Description=demo fastapi application
+After=network.target
+
+[Service]
+User=kaiyi_cui_525
+Group=kaiyi_cui_525
+WorkingDirectory=/home/kaiyi_cui_525/fastapi/source
+Environment="PATH=/home/kaiyi_cui_525/fastapi/fastapiEnv/bin"
+EnvironmentFile=/home/kaiyi_cui_525/.env
+ExecStart=/home/kaiyi_cui_525/fastapi/fastapiEnv/bin/gunicorn -w 4 -k uvicorn.workers.UvicornWorker app.main_orm:app --bind 0.0.0.0:8000
+
+[Install]
+WantedBy=multi-user.target
