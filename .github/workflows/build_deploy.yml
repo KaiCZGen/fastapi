@@ -7,14 +7,14 @@ jobs:
     environment:
       name: fastapi-testing
     env:
-      DATABASE_HOSTNAME: ${{DATABASE_HOSTNAME}}
-      DATABASE_PORT: ${{DATABASE_PORT}}
-      DATABASE_PWD: ${{DATABASE_PWD}}
-      DATABASE_NAME: ${{DATABASE_NAME}}
-      DATABASE_USERNAME: ${{DATABASE_USERNAME}}
-      TOKEN_PWD: ${{TOKEN_PWD}}
-      ALGORITHM: ${{ALGORITHM}}
-      ACCESS_TOKEN_EXPIRE: ${{ACCESS_TOKEN_EXPIRE}}
+      DATABASE_HOSTNAME: ${{secrets.DATABASE_HOSTNAME}}
+      DATABASE_PORT: ${{secrets.DATABASE_PORT}}
+      DATABASE_PWD: ${{secrets.DATABASE_PWD}}
+      DATABASE_NAME: ${{secrets.DATABASE_NAME}}
+      DATABASE_USERNAME: ${{secrets.DATABASE_USERNAME}}
+      TOKEN_PWD: ${{secrets.TOKEN_PWD}}
+      ALGORITHM: ${{secrets.ALGORITHM}}
+      ACCESS_TOKEN_EXPIRE: ${{secrets.ACCESS_TOKEN_EXPIRE}}
     runs-on: ubuntu-latest
     steps:
       - name: pulling git repo
