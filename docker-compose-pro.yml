@@ -1,0 +1,33 @@
+version: '3'
+services:
+  api:
+    image: kcde/fastapi
+    ports:
+      - 80:8000
+    entrypoint: sh -c "alembic upgrade head && uvicorn app.main_orm:app --host 0.0.0.0 --port 8000"
+    environment:
+      - DATABASE_HOSTNAME=${DATABASE_HOSTNAME}
+      - DATABASE_PORT=${DATABASE_PORT}
+      - DATABASE_PWD=${DATABASE_PWD}
+      - DATABASE_NAME=${DATABASE_NAME}
+      - DATABASE_USERNAME=${DATABASE_USERNAME}
+      - TOKEN_PWD=${TOKEN_PWD}
+      - ALGORITHM=${ALGORITHM}
+      - ACCESS_TOKEN_EXPIRE=${ACCESS_TOKEN_EXPIRE}
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=${DATABASE_PWD}
+      - POSTGRES_DB=${DATABASE_NAME}
+      - POSTGRES_USER=${DATABASE_USERNAME}
+    
+    volumes:
+      - postgres_db:/var/lib/postgresql/data
+
+volumes:
+  postgres_db: 
