@@ -76,7 +76,7 @@ jobs:
 
     steps:
       - name: deploy to ubuntu server on gcp
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{secrets.PROD_HOST}}
           username: ${{secrets.PROD_USERNAME}}
