@@ -73,6 +73,10 @@ jobs:
     #needs: [build]
     environment:
       name: fastapi-production
+    env:
+      PROD_USERNAME: ${{secrets.PROD_USERNAME}}
+      PROD_HOST: ${{secrets.PROD_HOST}}
+      PROD_KEY: ${{secrets.PROD_KEY}}
 
     steps:
       - name: deploy to ubuntu server on gcp
