@@ -82,7 +82,7 @@ jobs:
       - name: deploy to ubuntu server on gcp
         uses: appleboy/ssh-action@v1.0.0
         with:
-          host: ${{secrets.PROD_HOST}}
+          host: 34.89.170.14
           username: ${{secrets.PROD_USERNAME}}
           key: ${{secrets.PROD_KEY}}
           script: |
