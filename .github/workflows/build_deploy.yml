@@ -86,5 +86,9 @@ jobs:
           username: ${{secrets.PROD_USERNAME}}
           key: ${{secrets.PROD_KEY}}
           script: |
-            whoami
+            cd fastapi/source/
+            git pull
+            sudo systemctl restart fastapi
+
+
       
