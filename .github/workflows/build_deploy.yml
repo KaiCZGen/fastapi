@@ -80,9 +80,9 @@ jobs:
 
     steps:
       - name: deploy to ubuntu server on gcp
-        uses: appleboy/ssh-action@v1.0.0
+        uses: appleboy/ssh-action@master
         with:
-          host: 34.89.170.14
+          host: ${{secrets.PROD_HOST}}
           username: ${{secrets.PROD_USERNAME}}
           key: ${{secrets.PROD_KEY}}
           script: |
